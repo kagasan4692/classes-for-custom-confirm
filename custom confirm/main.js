@@ -1,28 +1,54 @@
-class  ButtonApply{
+class ButtonWrapper {
     constructor(){
-        const eBody = document.querySelector('body');
-        this.eButton = document.createElement('button');
-        this.setAttributeButton();
-        eBody.append(this.eButton);
         
-    }
-    setAttributeButton(){
-        this.eButton.classList.add('btn');
-        this.eButton.textContent = 'Applay'
-    }
-}
-new ButtonApply();
-
-class ApplayPanel{
-    constructor(){
         const eBody = document.querySelector('body');
-        this.eApplayPanel = document.createElement('button');
-        this.setAttributeApplayPanel();
-        eBody.append(this.eApplayPanel); 
+        this.eButtonWrapper = document.createElement('div');
+        this.setAttributeeButtonWrapper();
+        eBody.append(this.eButtonWrapper); 
     }
-    setAttributeApplayPanel(){
-        this.eApplayPanel.classList.add('wrapper-apply-panel');
-        this.eApplayPanel.textContent = 'Applay'
+
+    setAttributeeButtonWrapper(){
+        this.eButtonWrapper.classList.add('wrapper-button');
     } 
 }
-new ApplayPanel();
+
+class  ButtonApply extends ButtonWrapper{
+    constructor(){
+        super();
+        this.eButton = document.createElement('button');
+        this.setAttributeButton();
+        this.eButtonWrapper.append(this.eButton);
+        
+    }
+
+    setAttributeButton(){
+        this.eButton.classList.add('btn');
+        this.eButton.textContent = 'Apply'
+    }
+}
+
+class ApplyPanel {
+    constructor(){
+        
+        const eBody = document.querySelector('body');
+        this.eApplyPanel = document.createElement('div');
+        this.setAttributeApplyPanel();
+        eBody.append(this.eApplyPanel); 
+    }
+
+    setAttributeApplyPanel(){
+        this.eApplyPanel.classList.add('apply-panel');
+    } 
+}
+
+new ApplyPanel();
+new ButtonApply();
+
+// cunstomConfirm (['Apply', 'Cancel']);
+
+// function cunstomConfirm (arrayTextContent) {
+//     arrayTextContent.forEach(buttonTextContent => {
+//         new ButtonApply(buttonTextContent);
+//     })
+    
+// }

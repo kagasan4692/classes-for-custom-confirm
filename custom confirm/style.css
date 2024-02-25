@@ -1,6 +1,12 @@
 .btn{
     border: 1px solid black;
 }
-.wrapper-apply-panel{
+.apply-panel{
     border: 1px solid blue;
+    padding: 10px;
+}
+.wrapper-button{
+    display: inline-block;
+    border: 1px solid green;
+    padding: 2px; 
 }
