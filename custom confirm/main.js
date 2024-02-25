@@ -1,39 +1,42 @@
-class ButtonWrapper {
-    constructor(){
-        
-        const eBody = document.querySelector('body');
+
+class  ButtonApply{
+    constructor(textContent){
+
         this.eButtonWrapper = document.createElement('div');
         this.setAttributeeButtonWrapper();
-        eBody.append(this.eButtonWrapper); 
+        
+        this.eButton = document.createElement('button');
+        this.setAttributeButton(textContent);
+
+        this.eButton.addEventListener('click', onConfirm)
+
+        this.eButtonWrapper.append(this.eButton);
+
+    }
+s
+    setAttributeButton(textContent){
+        this.eButton.classList.add('btn');
+        this.eButton.textContent = textContent;
     }
 
     setAttributeeButtonWrapper(){
         this.eButtonWrapper.classList.add('wrapper-button');
-    } 
-}
-
-class  ButtonApply extends ButtonWrapper{
-    constructor(){
-        super();
-        this.eButton = document.createElement('button');
-        this.setAttributeButton();
-        this.eButtonWrapper.append(this.eButton);
-        
     }
 
-    setAttributeButton(){
-        this.eButton.classList.add('btn');
-        this.eButton.textContent = 'Apply'
+    getButtonElement(){
+      return this.eButtonWrapper  
     }
 }
 
-class ApplyPanel {
+class ApplyPanel{
     constructor(){
-        
         const eBody = document.querySelector('body');
         this.eApplyPanel = document.createElement('div');
         this.setAttributeApplyPanel();
         eBody.append(this.eApplyPanel); 
+
+        this.eApplyPanel.append(new ButtonApply('Apply').getButtonElement());
+ 
     }
 
     setAttributeApplyPanel(){
@@ -42,13 +45,9 @@ class ApplyPanel {
 }
 
 new ApplyPanel();
-new ButtonApply();
 
-// cunstomConfirm (['Apply', 'Cancel']);
 
-// function cunstomConfirm (arrayTextContent) {
-//     arrayTextContent.forEach(buttonTextContent => {
-//         new ButtonApply(buttonTextContent);
-//     })
+function onConfirm (e) {
+    console.log(e);
     
-// }
+}
