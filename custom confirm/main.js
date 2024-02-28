@@ -51,3 +51,7 @@ function onConfirm (e) {
     console.log(e);
     
 }
+var myFish = ["angel", "clown", "drum", "mandarin", "sturgeon"];
+var removed = myFish.splice(3, 2);
+console.log(removed)
+console.log(myFish)
